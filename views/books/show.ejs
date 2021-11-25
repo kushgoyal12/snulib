@@ -1,0 +1,21 @@
+<% layout('layouts/boilerplate') %> 
+
+            <div class="card" style="width: 18rem; margin: 10px;">
+                <img class="card-img-top" src="<%= book.image %> " alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title"><%= book.name %> </h4>
+                    <h5><%= book.author %></h5>
+                    <h5><%= book.status %></h5>
+                    <p class="card-text"><%= book.location %></p>
+                </div>
+                <% if(currentUser.isAdmin == "Yes") { %> 
+                <div class="card-body">
+                    <a class="card-link btn btn-info" href="/books/<%= book._id %>/edit">Edit</a>                  
+                    <form class="d-inline" action="/books/<%= book._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">DELETE</button>
+                    </form>              
+                </div>
+                <% } %> 
+            </div>
+ 
+

@@ -1,0 +1,44 @@
+.site-footer{
+margin-top:auto;
+padding: 10px 10px 0px 10px;
+bottom: 0;
+width: 100%;
+background: black;
+}
+.footernotes{
+color:grey;
+}
+h6{
+color:white;
+}
+.footer-links
+{
+  padding-left:0;  
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:grey;
+text-decoration:none ;
+
+}
+.footer-links a:focus,.footer-links a:hover
+{
+  color:rgb(86, 252, 243);
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+
+#grp_name{
+color:grey;
+text-decoration:none;
+}
+#grp_name:hover{
+color:rgb(86, 252, 243);
+}

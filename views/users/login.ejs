@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/loginPage.css">
+
+</head>
+<body>
+    <div class="hea">
+        <h1>SHIV NADAR UNIVERSITY CENTRAL LIBRARY</h1>
+    </div>
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-button login" onclick="login();">USER</button>
+                <button type="button" class="toggle-button register" onclick="register();" class="active">ADMIN</button>
+            </div>
+            <form action="/login" method="POST" id="login" class="input-group">
+                <input type="text" class="input-field success" id="input_login_username" placeholder="Username" name="username"
+                    required>
+                <input type="password" class="input-field success" id="input_login_password" placeholder="Enter Password" name="password"
+                    required>
+                <span id="error_msg_login">Incorrect username or password. Please try again.</span>
+                <button type="submit" id="submit-log-btn" class="submit-log-btn enabled">Log In</button>
+            </form>
+            <form action="/login" method="POST" id="register" class="input-group">
+                <input type="text" class="input-field success" id="input_register_username" placeholder="Username" name="username"
+                    required>
+                <input type="password" class="input-field success" id="input_register_password" placeholder="Enter Password" name="password"
+                    required>
+                <span id="error_msg_register">Incorrect username or password. Please try again.</span>
+                <button type="submit" id="submit-reg-btn" class="submit-reg-btn enabled">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/javascripts/login.js"></script>
+
+</body>
+</html>
