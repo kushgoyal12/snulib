@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Book = require("../models/book");
 const User = require("../models/user");
 
-mongoose.connect('mongodb://localhost:27017/library', {
+mongoose.connect('mongodb+srv://Zack:aslk0807@cluster0.bwzxy.mongodb.net/Library', {
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
-    // useCreateIndex: true
+    
 });
 
 const db = mongoose.connection;
@@ -22,7 +22,7 @@ db.once("open", () => {
 //     mongoose.connection.close()
 // })
 
-// const seedBooks = [
+// const seedBooks=[
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5098/9781509858637.jpg',
 //         name: 'This Is Going to Hurt',
@@ -67,10 +67,8 @@ db.once("open", () => {
 //         issued_by: 'None',
 //         status: 'Available',
 //         category: 'Medical'
-//     }
-// ]
-
-// const seedBooks = [
+//     },
+    
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0995/9780099590088.jpg',
 //         name: 'Sapiens',
@@ -79,10 +77,8 @@ db.once("open", () => {
 //         issued_by: 'None',
 //         status: 'Available',
 //         category: 'Science-Geography'
-//     }
-// ]
-
-// const seedBooks = [
+//     },
+    
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7847/9781784701994.jpg',
 //         name: 'When Breath Becomes Air',
@@ -118,10 +114,10 @@ db.once("open", () => {
 //         issued_by: 'None',
 //         status: 'Available',
 //         category: 'Science-Geography'
-//     }
-// ]
+//     },
 
-// const seedBooks = [
+
+
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9783/8365/9783836538725.jpg',
 //         name: 'Sebastiao Salgado. GENESIS',
@@ -212,10 +208,10 @@ db.once("open", () => {
 //         status: 'Available',
 //         category: 'Biography'
 //     }
-    
-// ]
+//     ,
 
-// const seedBooks = [
+
+
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4778/9781477800676.jpg',
 //         name: 'Manage Your Day-to-Day',
@@ -305,10 +301,10 @@ db.once("open", () => {
 //         issued_by: 'None',
 //         status: 'Available',
 //         category: 'Childrens-Books'
-//     }
-// ]
+//     },
 
-// const seedBooks = [
+
+
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/1191/9781119138556.jpg',
 //         name: 'AWS Certified Solutions Architect Official Study Guide',
@@ -380,10 +376,10 @@ db.once("open", () => {
 //         issued_by: 'None',
 //         status: 'Available',
 //         category: 'Computing'
-//     }
-// ]
+//     },
 
-// const seedBooks = [
+
+
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3409/9780340992852.jpg',
 //         name: 'Midnight in the Garden of Good and Evil',
@@ -473,10 +469,9 @@ db.once("open", () => {
 //         issued_by: 'None',
 //         status: 'Available',
 //         category: 'Health'
-//     }
-// ]
+//     },
 
-// const seedBooks = [
+
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3455/9780345532862.jpg',
 //         name: 'A Victorian Flower Dictionary',
@@ -522,9 +517,9 @@ db.once("open", () => {
 //         status: 'Available',
 //         category: 'Natural-History'
 //     },
-// ]
 
-// const seedBooks = [
+
+
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0079/9780007902347.jpg',
 //         name: 'Hamlet',
@@ -615,9 +610,7 @@ db.once("open", () => {
 //         status: 'Available',
 //         category: 'Romance'
 //     },
-// ]
-
-// const seedBooks = [
+    
 //     {
 //         image: 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/8117/9780811733397.jpg',
 //         name: 'Self-Coached Climber',

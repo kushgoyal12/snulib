@@ -10,16 +10,14 @@ const ExpressError = require('./utilities/ExpressError');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
-const { isLoggedIn } = require('./middleware');
+ const { isLoggedIn } = require('./middleware');
 
 const userRoutes = require('./routes/users');
 const bookRoutes = require('./routes/books');
 
-mongoose.connect('mongodb://localhost:27017/library', {
+mongoose.connect('mongodb+srv://Zack:aslk0807@cluster0.bwzxy.mongodb.net/Library', {
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
-    // useCreateIndex: true,
-    // useFindAndModify: false
 });
 
 const db = mongoose.connection;
@@ -37,7 +35,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 
 const sessionConfig = {
-    secret: '',
+    secret: 'okay',
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -67,9 +65,11 @@ app.use((req, res, next) => {
 app.use('/', userRoutes);
 app.use('/books', bookRoutes);
 
+
 app.get('/index', isLoggedIn, (req, res) => {
     res.render('index');
 })
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page not Found', 404))

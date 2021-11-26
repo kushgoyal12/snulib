@@ -16,18 +16,30 @@
                         Services Provided by us
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">List of books issued by you</a></li>
+                        <li><a class="dropdown-item" href="/books/issuedbooks">List of books issued by you</a></li>
                         <li><a class="dropdown-item" href="#">Newest additions to our collection</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Due charges</a></li>
+                       
                     </ul>
                 </li>
             </ul>
-            <div class="navbar-nav ms-auto">
+        <div>
+           <form action="/books/searchBook">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="/logout">Logout</a>
             </div>
         </div>
     </div>
 </nav>
+
+
+
+
+

@@ -5,6 +5,7 @@ const { isLoggedIn } = require('../middleware');
 const catchAsync = require('../utilities/catchAsync');
 const Book = require("../models/book")
 
+
 router.get('/medical' , isLoggedIn, catchAsync(async (req, res) => {
     const books = await Book.find({ category: 'Medical' });
     res.render('books/medicalDept', { books });
@@ -75,6 +76,27 @@ router.get('/techEngg' , isLoggedIn, catchAsync(async (req, res) => {
     res.render('books/techEnggDept', { books });
 }))
 
+router.get('/searchBook' ,isLoggedIn, async(req , res)=>{
+    
+    const book_name = req.query.search 
+    const book = await Book.findOne({"name" : book_name})
+    res.render('books/show',{ book });
+    })
+
+router.get('/issuedbooks',async(req,res)=>{
+        
+    const user_name = req.user.username;   
+    const book = await Book.findOne({'issued_by': {$regex : user_name}});
+    if (book === null)
+    {
+        req.flash('error',"No Books Issued by you ")
+        res.redirect('/index')
+    }
+    else{
+        res.render('books/show',{ book});
+    }
+    })
+
 router.get('/new', isLoggedIn, (req, res) => {
     res.render('books/new');
 })
@@ -88,6 +110,7 @@ router.post('/', isLoggedIn, catchAsync(async(req, res) => {
 router.get('/:id', catchAsync(async(req, res) => {
     const book = await Book.findById(req.params.id);
     res.render('books/show', { book });
+
 }))
 
 router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
@@ -113,5 +136,7 @@ router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {
     // req.flash('success', 'Successfully deleted campground!');
     res.redirect('/books');
 }))
+
+
 
 module.exports = router;

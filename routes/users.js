@@ -3,6 +3,9 @@ const router = express.Router();
 const passport = require('passport');
 
 const User = require('../models/user');
+const Book = require("../models/book")
+
+//var user_name = currentUser.username
 
 router.get('/register', (req, res) => {
     res.render('users/register');
@@ -26,6 +29,8 @@ router.get('/login', (req, res) => {
     res.render('users/login');
 })
 
+
+
 router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
     req.flash('success', 'Welcome Back!');
     // const redirectUrl = req.session.returnTo || '/campgrounds';
@@ -38,6 +43,8 @@ router.get('/logout', (req, res) => {
     req.flash('success', 'Goodbye!');
     res.redirect('/login');
 })
+
+router.get('')
 
 module.exports = router;
 
