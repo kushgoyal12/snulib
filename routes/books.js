@@ -86,16 +86,23 @@ router.get('/searchBook' ,isLoggedIn, async(req , res)=>{
 router.get('/issuedbooks',async(req,res)=>{
         
     const user_name = req.user.username;   
-    const book = await Book.findOne({'issued_by': {$regex : user_name}});
-    if (book === null)
+    const books = await Book.find({'issued_by': {$regex : user_name}});
+    if (books.length===0)
     {
         req.flash('error',"No Books Issued by you ")
         res.redirect('/index')
     }
     else{
-        res.render('books/show',{ book});
+        res.render('books/showmultiple',{ books});
     }
     })
+
+    router.get('/latest' ,isLoggedIn, async(req , res)=>{
+    
+        const book_name = req.query.search 
+        const books = await Book.find({category: {$in: ['Art-Photography','Biography']}})
+        res.render('books/showmultiple',{ books });
+        })    
 
 router.get('/new', isLoggedIn, (req, res) => {
     res.render('books/new');
