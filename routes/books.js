@@ -16,14 +16,14 @@ router.get('/searchBook' ,isLoggedIn, async(req , res)=>{
         res.redirect('/index')
     }
     else{
-       res.render('books/showmultiple',{ books });
+       res.render('books/material-cards',{ books });
     }
     })
 
 router.get('/departments/:name' , isLoggedIn, catchAsync(async (req, res) => {
         const { name } = req.params;
         const books = await Book.find({ category: name });
-        res.render('books/showmultiple', { books });
+        res.render('books/material-cards', { books });
     }))
 
 router.get('/issuedbooks',async(req,res)=>{
@@ -36,7 +36,7 @@ router.get('/issuedbooks',async(req,res)=>{
         res.redirect('/index')
     }
     else{
-        res.render('books/showmultiple',{ books});
+        res.render('books/material-cards',{ books});
     }
     })
 
@@ -44,12 +44,23 @@ router.get('/latest' ,isLoggedIn, async(req , res)=>{
     
         const book_name = req.query.search 
         const books = await Book.find({category: {$in: ['Art-Photography','Biography']}})
-        res.render('books/showmultiple',{ books });
+        res.render('books/material-cards',{ books });
         })    
 
         router.get('/new', isLoggedIn, (req, res) => {
-    res.render('books/new');
+        res.render('books/new');
 })
+
+// router.get('/display' ,isLoggedIn, async(req , res)=>{
+//     const { name } = req.params;
+//     const books = await Book.find({ category: name }); 
+//    res.render('books/material-cards_simple',{books});
+//     })    
+
+    router.get('/new', isLoggedIn, (req, res) => {
+res.render('books/new');
+})
+
 
 router.post('/', isLoggedIn, catchAsync(async(req, res) => {
     const book = new Book(req.body.book);

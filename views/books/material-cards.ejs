@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/material-cards-auto-height.css">
+    <style type="text/css">
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            background-color: #ECEFF1;
+            color: #37474F;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 200;
+        }
+
+        .grid-item {
+            width: 390px;
+            padding: 15px;
+        }
+
+    </style>
+</head>
+
+<body class="bg-purple">
+<section class="container">
+    <div class="page-header" style="text-align: center;">
+        <h1>BOOKS<br>
+     </div>
+    
+     <div class="row active-with-click grid">
+        <% for(let book of books) { %> 
+        <div class="grid-item">
+          
+                    <article class="material-card Red">
+                        <h2>
+                            <strong>
+                            <span><%= book.name %> </span>
+                            </strong>
+                             <%= book.author %>
+                            </h2>
+                        
+                            <div class="mc-content">
+                            <div class="img-container">
+                                <img class="img-responsive" src="<%= book.image %>" style="height: 330px; width: 330px;">
+                            </div>
+                            <div class="mc-description">
+                                <h4 class="card-title"><%= book.name %> </h4>
+                                <h5><%= book.author %></h5>
+                                <h5><%= book.status %></h5>
+                                <p class="card-text"><%= book.location %></p>
+                            </div>
+                            <% if(currentUser.isAdmin == "Yes") { %> 
+                                <div style="margin-left: 90px;">
+                                    <div style="display: inline-block;margin-right: 10px;margin-bottom: 10px;"><a class="card-link btn btn-info" href="/books/<%= book._id %>/edit">Edit</a></div>                  
+                                   <div  style="display: inline-block"> <form class="d-inline" action="/books/<%= book._id %>?_method=DELETE" method="POST">
+                                    <button class="btn btn-danger">DELETE</button>
+                                </form>              
+                            </div>
+                        </div>
+                                <% } %> 
+                        </div>
+                        <a class="mc-btn-action">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                       
+            </article>
+        </div>
+        <% } %>
+     </div>
+</section>
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="/javascripts/jquery.material-cards.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+
+<script>
+    $(function() {
+
+        var $grid = $('.grid').masonry({
+            itemSelector: '.grid-item',
+            columnWidth: 390,
+        });
+
+        $('.material-card').materialCard();
+
+        $('.material-card').on('shown.material-card hidden.material-card', function (event) {
+            $grid.masonry();
+        });
+
+    });
+</script>
+</body>
+</html>
