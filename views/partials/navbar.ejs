@@ -18,14 +18,20 @@
                         Services Provided by us
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <% if(currentUser.isAdmin == "No") { %> 
                         <li><a class="dropdown-item" href="/books/issuedbooks">List of books issued by you</a></li>
+                        <% } %> 
                         <li><a class="dropdown-item" href="/books/latest">Newest additions to our collection</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                       
                     </ul>
                 </li>
+                <% if(currentUser.isAdmin == "Yes") { %> 
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/books/new">Add a new Book</a>
+                    </li>
+                   <% } %> 
             </ul>
         <div>
            <form action="/books/searchBook">

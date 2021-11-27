@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Book = require("../models/book");
 const User = require("../models/user");
 
-mongoose.connect('mongodb+srv://Zack:aslk0807@cluster0.bwzxy.mongodb.net/Library', {
+mongoose.connect('mongodb+srv://Kush:W6UtDSsMYuzJZCbB@cluster0.bwzxy.mongodb.net/Library', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 

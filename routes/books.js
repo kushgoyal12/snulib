@@ -49,18 +49,11 @@ router.get('/latest' ,isLoggedIn, async(req , res)=>{
 
         router.get('/new', isLoggedIn, (req, res) => {
         res.render('books/new');
-})
+})    
 
-// router.get('/display' ,isLoggedIn, async(req , res)=>{
-//     const { name } = req.params;
-//     const books = await Book.find({ category: name }); 
-//    res.render('books/material-cards_simple',{books});
-//     })    
-
-    router.get('/new', isLoggedIn, (req, res) => {
+router.get('/new', isLoggedIn, (req, res) => {
 res.render('books/new');
 })
-
 
 router.post('/', isLoggedIn, catchAsync(async(req, res) => {
     const book = new Book(req.body.book);

@@ -15,7 +15,7 @@ const User = require('./models/user');
 const userRoutes = require('./routes/users');
 const bookRoutes = require('./routes/books');
 
-mongoose.connect('mongodb+srv://Zack:aslk0807@cluster0.bwzxy.mongodb.net/Library', {
+mongoose.connect('mongodb+srv://Zack:d9VzyAmXpdqa8IRZ@cluster0.bwzxy.mongodb.net/Library', {
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
 });
