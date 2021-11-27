@@ -40,6 +40,13 @@
                     </div>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" for="issue_date">Issued Date</label>
+                    <input class="form-control" type="text" id="issue_date" name="book[issue_date]" value="<%= book.issue_date %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
                     <label class="form-label" for="status">Status</label>
                     <input class="form-control" type="text" id="status" name="book[status]" value="<%= book.status %>" required>
                     <div class="valid-feedback">

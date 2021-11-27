@@ -18,7 +18,7 @@ router.post('/register', async (req, res, next) => {
     const registeredUser = await User.register(user, password);
     req.login(registeredUser, err => {
         if(err) return next(err);
-        res.redirect('/books');
+        res.redirect('/index');
     })
     } catch(e) {
         res.redirect('/register');
@@ -28,7 +28,6 @@ router.post('/register', async (req, res, next) => {
 router.get('/login', (req, res) => {
     res.render('users/login');
 })
-
 
 
 router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {

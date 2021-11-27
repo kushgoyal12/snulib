@@ -11,13 +11,22 @@ a {
   text-decoration: none;
 }
 
+
 .bg-purple {
   /* color: #fff; */
   /* background: -webkit-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -webkit-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
   background: -o-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -o-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
   background: -moz-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -moz-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
   background: linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%); */
-  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+  /* background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark)); */
+  background-image: url("../images/lib1.png");
+ 
+ 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+ 
+  background-size: cover;
 }
 
 /* Slideshow container */
@@ -30,6 +39,7 @@ a {
 /* Hide the images by default */
 .mySlides {
   display: none;
+
 }
 
 /* Next & previous buttons */
@@ -98,9 +108,9 @@ a {
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 3s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 3s;
 }
 
 @-webkit-keyframes fade {
@@ -120,6 +130,8 @@ padding: 5px;
 box-shadow: 8px 4px black;
 text-align: center;
 border-radius: 15px 50px;
+font-family: Bradley Hand, cursive;
+font-size: 15px;
 }
 
 .spdiv {
@@ -156,4 +168,82 @@ align-items: center;
 flex-direction: column;
 }
 }
+
+.search {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media only screen and (max-width: 31.25em) {
+  .search {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+}
+
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: white;
+  /* border: none; */
+  border-color: black;
+  padding: .7rem 2rem;
+  border-radius: 100px;
+  width: 90%;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  margin-right: -3.25rem;
+}
+
+.search__input:focus {
+  outline: none;
+  width: 200%;
+  background-color: white;
+}
+
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color:black;
+}
+
+.search__input:focus + .search__button {
+  background-color:white;
+}
+
+.search__button {
+  border: none;
+  background-color: white;
+}
+
+.search__button:focus {
+  outline: none;
+}
+
+.search__button:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
+.search__icon {
+  height: 2rem;
+  width: 2rem;
+  fill: var(--color-grey-dark-3);
+}
+
 
