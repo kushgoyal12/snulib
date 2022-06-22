@@ -15,7 +15,7 @@ const User = require('./models/user');
 const userRoutes = require('./routes/users');
 const bookRoutes = require('./routes/books');
 
-mongoose.connect('mongodb+srv://Zack:d9VzyAmXpdqa8IRZ@cluster0.bwzxy.mongodb.net/Library', {
+mongoose.connect('mongodb+srv://Zack:7fjkjArZ4jkDvbKj@cluster0.bwzxy.mongodb.net/Library', {
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
 });
@@ -83,6 +83,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-app.listen(3000, () => {
-    console.log('Serving on Port 3000')
+app.listen(5000, () => {
+    console.log('Serving on Port 5000')
 })
