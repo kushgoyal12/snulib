@@ -7,6 +7,10 @@ const Book = require("../models/book")
 
 //var user_name = currentUser.username
 
+router.get('/', (req, res) => {
+    res.render('users/login');
+})
+
 router.get('/register', (req, res) => {
     res.render('users/register');
 })
